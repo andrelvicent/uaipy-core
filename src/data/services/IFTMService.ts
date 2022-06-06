@@ -7,7 +7,7 @@ export class IFTMService {
   }
 
   public findAll = async () => {
-    const iftmData = await this.iftmRepository.get();
+    const iftmData = await this.iftmRepository.getAll();
     return iftmData;
   }
 

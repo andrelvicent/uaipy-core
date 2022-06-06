@@ -1,19 +1,26 @@
-import fs from 'fs';
+import { IFTM } from "../../domain/models/IFTM";
 
 export class IFTMPostgresRepository {
-  private txtFile: string;
-  constructor(){
-    this.txtFile = "./src/infra/repositories/repo.txt"
+  constructor(){}
+
+  public getAll = async () => {
+    try{
+      console.log(await IFTM.findAll());
+    } catch(error: any){
+      console.log(error);
+    }
   }
 
-  public get = async () => {
-    const iftmData = fs.readFileSync(this.txtFile, 'utf8');
-    return iftmData;
-  }
+  public create = async (input: string) => {
+    try{
+      const newData = await IFTM.create({
+        data: input
+      });
 
-  public create = async (data: string) => {
-    fs.appendFile(this.txtFile, data, (error) => {
-      if(error) console.log(error);
-    });
+      console.log(newData);
+    }
+    catch(error: any) {
+      console.log(error);
+    }
   }
 }

@@ -1,15 +1,19 @@
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn} from "typeorm";
+import { DataTypes } from "sequelize";
+import { postgresConnection } from "../../infra/helpers/DbConnections";
 
-@Entity()
-export class IFTM {
-
-    @PrimaryGeneratedColumn("uuid")
-    uuid: string;
-
-    @Column()
-    text: string;
-
-    @CreateDateColumn()
-    created_at: Date;
-
-}
+export const IFTM = postgresConnection().define('partnerIftm', 
+{
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
+    data: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    }
+}, 
+{
+    freezeTableName: true
+});

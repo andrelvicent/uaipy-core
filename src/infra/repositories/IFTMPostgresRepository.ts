@@ -5,7 +5,7 @@ export class IFTMPostgresRepository {
 
   public getAll = async () => {
     try{
-      console.log(await IFTM.findAll());
+      return await IFTM.findAll();
     } catch(error: any){
       console.log(error);
     }
@@ -17,7 +17,7 @@ export class IFTMPostgresRepository {
         data: input
       });
 
-      console.log(newData);
+      return newData;
     }
     catch(error: any) {
       console.log(error);

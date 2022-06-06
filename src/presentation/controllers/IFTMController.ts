@@ -18,8 +18,8 @@ export class IFTMController {
   public create = async (req: Request, res: Response) => {
     try{
       const data = JSON.stringify(req.body);
-      await this.iftmService.create(data)
-      res.send('ok');
+      const response = await this.iftmService.create(data)
+      res.send(response);
     }catch(error: any){
       console.log(error)
     }

@@ -16,34 +16,34 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [x] Criar configuração inicial do repositório
+- [x] Disponibilizar rotas de públicação e consultas através do express
+- [x] Persistir e resgatar payload em banco de dados postgres
+- [ ] Criar traatamento inteligente de exceptions
+- [ ] Criar sistema de autenticação de dispositivos
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
-* Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-* Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-* Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+* Você instalou a versão mais recente do `nodejs`
+* Você tem uma máquina `<Windows / Linux / Mac>`.
+* Você possui o pacote npm.
 
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Subindo o servidor localmente
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+Para subir o servidor ```uaipy```, siga estas etapas:
 
-Linux e macOS:
+1 - Faça o download de todas as dependências digitando:
 ```
-<comando_de_instalação>
-```
-
-Windows:
-```
-<comando_de_instalação>
+<npm install>
 ```
 
+Após a instalação de todas as dependências, instancie o servidor express, com o comando:
+
+```
+<npm start>
+```
 ## ☕ Usando <nome_do_projeto>
 
 Para usar <nome_do_projeto>, siga estas etapas:
@@ -74,14 +74,6 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars3.githubusercontent.com/u/31936044" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
-        <sub>
-          <b>Iuri Silva</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
         <img src="https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
         <sub>
           <b>Mark Zuckerberg</b>
@@ -99,10 +91,6 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   </tr>
 </table>
 
-
-## 😄 Seja um dos contribuidores<br>
-
-Quer fazer parte desse projeto? Clique [AQUI](CONTRIBUTING.md) e leia como contribuir.
 
 ## 📝 Licença
 

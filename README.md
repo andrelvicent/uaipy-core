@@ -7,9 +7,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-<img src="./images/logo.jpeg" alt="Uaipy logo" width="200" height="200">
-
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+> Este é o repositório core, nele contém toda a regra de negócio necessária para uma experimentação remota de fácil manutenção, segura e escalável.
 
 ### Ajustes e melhorias
 

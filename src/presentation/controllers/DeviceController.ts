@@ -12,7 +12,6 @@ export class DeviceController {
   }
 
   public index = async (req: Request, res: Response) => {
-    console.log(req);
     res.send(await this.deviceService.findAll());
   }
 

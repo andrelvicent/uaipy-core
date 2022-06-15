@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import { defaultHttpHeaders } from "./../index";
 import { IFTMService } from "../../data/services/IFTMService";
 
 export class IFTMController {
@@ -12,33 +13,21 @@ export class IFTMController {
   }
 
   public index = async (req: Request, res: Response) => {
-    res.send(await this.iftmService.findAll());
+    res.status(200).set(defaultHttpHeaders()).send(await this.iftmService.findAll());
   }
 
   public create = async (req: Request, res: Response) => {
     try{
-      const data = JSON.stringify(req.body);
+      const data = req.body.data;
       const response = await this.iftmService.create(data)
-      res.send(response);
+      res.status(201).set(defaultHttpHeaders()).send(response);
     }catch(error: any){
-      console.log(error)
+      res.status(500).set(defaultHttpHeaders()).send('error');
     }
-  }
-
-  
-  public update = async (req: Request, res: Response) => {
-    res.send(this.iftmService.update());
-  }
-
-  
-  public delete = async (req: Request, res: Response) => {
-    res.send(this.iftmService.delete());
   }
 
   public routes(){
     this.router.get('/', this.index);
     this.router.post('/', this.create);
-    this.router.put('/:uuid', this.update);
-    this.router.delete('/:uuid', this.delete);
   }
 }

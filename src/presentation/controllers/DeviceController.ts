@@ -12,6 +12,7 @@ export class DeviceController {
   }
 
   public index = async (req: Request, res: Response) => {
+    console.log(req);
     res.send(await this.deviceService.findAll());
   }
 
@@ -21,26 +22,25 @@ export class DeviceController {
       const dataReceived = JSON.stringify(req.body);
       const data = JSON.parse(dataReceived);
       const response = await this.deviceService.create(data);
-      res.send(response);
+      res.status(201).send(response);
     }catch(error: any){
       console.log(error)
     }
   }
-
   
-  public update = async (req: Request, res: Response) => {
-    res.send(this.deviceService.update());
-  }
-
-  
-  public delete = async (req: Request, res: Response) => {
-    res.send(this.deviceService.delete());
+  public authenticate = async (req: Request, res: Response) => {
+    try{
+      const data = req.body;
+      const response = await this.deviceService.authenticate(data.name, data.deviceKey)
+      res.status(200).send({AcessToken: response });
+    }catch(error: any){
+      res.status(error.statusCode || 500).send(error.params);
+    }
   }
 
   public routes(){
     this.router.get('/', this.index);
+    this.router.post('/auth', this.authenticate);
     this.router.post('/', this.create);
-    this.router.put('/:uuid', this.update);
-    this.router.delete('/:uuid', this.delete);
   }
 }

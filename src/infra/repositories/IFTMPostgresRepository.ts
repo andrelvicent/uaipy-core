@@ -1,4 +1,4 @@
-import { IFTM } from "../../domain/models/IFTM";
+import { IFTM } from "../../domain/entities/IFTM";
 
 export class IFTMPostgresRepository {
   constructor(){}

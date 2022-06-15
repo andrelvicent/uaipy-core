@@ -1,9 +1,18 @@
-import { device } from "../../domain/models/Device";
-import { IFTM } from "../../domain/models/IFTM";
+import { device } from "../../domain/entities/Device";
+import { DeviceModel } from "../../domain/Models/DeviceModel.ts";
 
 export class DevicePostgresRepository {
   constructor(){}
 
+  public find = async (deviceName: string): Promise<DeviceModel> =>  {
+    try{
+      const data = await device.findOne({ where: { name: deviceName } });
+      return this.adaptToDomain(data);
+    } catch(error: any){
+      console.log(error);
+    }
+  }
+  
   public getAll = async () => {
     try{
       return await device.findAll();
@@ -25,4 +34,10 @@ export class DevicePostgresRepository {
       console.log(error);
     }
   }
+
+  private adaptToDomain = (data: any) : DeviceModel => ({
+    uuid: data.uuid,
+    name: data.name,
+    securityKey: data.securityKey,
+  });
 }

@@ -10,4 +10,8 @@ export class AuthService {
   public createAccessToken = async (entityUuid: string): Promise<string> => {
     return await this.encrypter.encrypt(entityUuid);
   }
+
+  public validateAccessToken = async (jsonWebToken: string) => {
+    return await this.encrypter.encrypt(entityUuid);
+  }
 }

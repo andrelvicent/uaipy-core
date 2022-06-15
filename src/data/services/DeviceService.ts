@@ -14,9 +14,11 @@ export class DeviceService {
     const device = await this.deviceRepository.find(deviceName);
     if(deviceKey != device.securityKey){
       throw new BadRequest({
-        code: 'AUTH-001',
+        code: 'AUTH-INVALID-KEY',
         message: 'Senha incorreta',
-        details: {}
+        details: {
+          reference: 'Caso não lembre de sua senha, por favor, entre em contato com o administrador o mais rápido possível. '
+        }
       });
     }
     return await this.authService.createAccessToken(device.uuid);

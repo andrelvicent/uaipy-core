@@ -1,5 +1,5 @@
+import { Unauthorized } from "../../domain/errors";
 import { Encrypter } from "../adapters/Encrypter";
-import { DeviceService } from "./DeviceService";
 
 export class AuthService {
   private encrypter: Encrypter;
@@ -11,7 +11,16 @@ export class AuthService {
     return await this.encrypter.encrypt(entityUuid);
   }
 
-  public validateAccessToken = async (jsonWebToken: string) => {
-    return await this.encrypter.encrypt(entityUuid);
+  public validateAccessToken = (jsonWebToken: string): Promise<string> => {
+    try {
+      const decryptedData = this.encrypter.validate(jsonWebToken);
+      return decryptedData.uuid;
+    }catch(error: any){
+      throw new Unauthorized({
+        code: 'INVALID-TOKEN',
+        message: error.message,
+        details: {}
+      });
+    }
   }
 }

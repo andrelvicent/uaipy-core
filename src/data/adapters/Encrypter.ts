@@ -16,11 +16,7 @@ export class Encrypter {
   }
 
   public validate = (jsonWebToken: string): any => {
-    try {
       const decoded = verify(jsonWebToken, process.env.JWT_SECRET) as any;
       return decoded;
-    } catch(error) {
-      throw error;
-    }
   }
 }

@@ -16,8 +16,11 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Criar configuração inicial do repositório
-- [x] Disponibilizar rotas de públicação e consultas através do express
-- [x] Persistir e resgatar payload em banco de dados postgres
+- [x] Disponibilizar rotas de públicação e consultas de dados através do express
+- [x] Persistir e resgatar payload de dados em banco de dados postgres
+- [x] Criar tabela e domínio de dispositivos (devices)
+- [ ] Criar validação de acesso por JWT
+- [ ] Criar sistema de login para dispositivos
 - [ ] Criar traatamento inteligente de exceptions
 - [ ] Criar sistema de autenticação de dispositivos
 

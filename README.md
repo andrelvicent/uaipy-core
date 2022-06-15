@@ -19,10 +19,15 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Disponibilizar rotas de públicação e consultas de dados através do express
 - [x] Persistir e resgatar payload de dados em banco de dados postgres
 - [x] Criar tabela e domínio de dispositivos (devices)
-- [ ] Criar validação de acesso por JWT
-- [ ] Criar sistema de login para dispositivos
-- [ ] Criar traatamento inteligente de exceptions
-- [ ] Criar sistema de autenticação de dispositivos
+- [x] Criar validação de acesso por JWT
+- [x] Criar sistema de login para dispositivos
+- [x] Criar tratamento inteligente de exceptions
+- [x] Criar sistema de autenticação de dispositivos
+- [ ] Filtrar apenas últimos registros do banco de dados
+- [ ] Criar contrato para as camadas da aplicação (controllers, usecases, repositories)
+- [ ] Criar variáveis de ambiente para path das apis
+- [ ] Criar processo de code review
+- [ ] Instanciar aplicação no heroku
 
 ## 💻 Pré-requisitos
 

@@ -4,10 +4,13 @@
   "description": "uaipy core repository",
   "main": "index.js",
   "scripts": {
-    "start:dev": "npm run tsc && node ./build/server.js",
+    "start": "node build/server.js",
+    "start:dev": "npm run tsc && node build/server.js",
     "tsc": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
+    "postinstall": "tsc",
+    "watch-node": "nodemon build/server.js",
+    "watch-ts": "tsc -w",
+    "deploy": "git add . && git commit -m Heroku && git push heroku master"
   },
   "author": "uaipy team",
   "license": "ISC",

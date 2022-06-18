@@ -11,22 +11,6 @@ export class DeviceController {
     this.routes();
   }
 
-  public index = async (req: Request, res: Response) => {
-    res.send(await this.deviceService.findAll());
-  }
-
-  public create = async (req: Request, res: Response) => {
-    try{
-      console.log(req.body);
-      const dataReceived = JSON.stringify(req.body);
-      const data = JSON.parse(dataReceived);
-      const response = await this.deviceService.create(data);
-      res.status(201).send(response);
-    }catch(error: any){
-      console.log(error)
-    }
-  }
-  
   public authenticate = async (req: Request, res: Response) => {
     try{
       const data = req.body;
@@ -38,8 +22,6 @@ export class DeviceController {
   }
 
   public routes(){
-    this.router.get('/', this.index);
     this.router.post('/auth', this.authenticate);
-    this.router.post('/', this.create);
   }
 }

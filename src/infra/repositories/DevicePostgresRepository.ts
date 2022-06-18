@@ -1,5 +1,5 @@
 import { device } from "../../domain/entities/Device";
-import { DeviceModel } from "../../domain/Models/DeviceModel.ts";
+import { DeviceModel } from "../../domain/Models/DeviceModel";
 
 export class DevicePostgresRepository {
   constructor(){}
@@ -7,31 +7,11 @@ export class DevicePostgresRepository {
   public find = async (deviceName: string): Promise<DeviceModel> =>  {
     try{
       const data = await device.findOne({ where: { name: deviceName } });
-      return this.adaptToDomain(data);
+      const response = data ? this.adaptToDomain(data) : undefined;
+      return response;
     } catch(error: any){
       console.log(error);
-    }
-  }
-  
-  public getAll = async () => {
-    try{
-      return await device.findAll();
-    } catch(error: any){
-      console.log(error);
-    }
-  }
-
-  public create = async (input: any) => {
-    try{
-      const newData = await device.create({
-        name: input.devices.name,
-        securityKey: input.devices.securitykey
-      });
-
-      return newData;
-    }
-    catch(error: any) {
-      console.log(error);
+      throw error;
     }
   }
 

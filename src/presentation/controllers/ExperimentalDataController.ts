@@ -1,16 +1,16 @@
 import { Router, Request, Response } from "express";
-import { defaultHttpHeaders } from "./../index";
-import { IFTMService } from "../../data/services/IFTMService";
+import { defaultHttpHeaders } from "../index";
 import { AuthService } from "../../data/services/AuthService";
+import { ExperimentalDataService } from "../../data/services/ExperimentalDataService";
 
-export class IFTMController {
+export class ExperimentalDataController {
   public router: Router;
-  private iftmService: IFTMService;
+  private iftmService: ExperimentalDataService;
   private authService: AuthService;
 
   constructor(){
     this.router = Router();
-    this.iftmService = new IFTMService();
+    this.iftmService = new ExperimentalDataService();
     this.authService = new AuthService();
     this.routes();
   }

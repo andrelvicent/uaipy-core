@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { getPostgresConnection } from "../../infra/helpers/DbConnections";
 
-export const IFTM = getPostgresConnection().define('partnerIftm', 
+export const experimentalData = getPostgresConnection().define('partnerIftm', 
 {
     id: {
         type: DataTypes.INTEGER,

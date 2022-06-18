@@ -10,7 +10,7 @@ export class BaseError extends Error {
 export type ErrorParams = {
   code: string,
   message: string,
-  details: {
-    reference?: string
+  details?: {
+    reference: string
   }
 }

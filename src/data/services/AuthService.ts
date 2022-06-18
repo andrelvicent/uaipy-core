@@ -19,7 +19,6 @@ export class AuthService {
       throw new Unauthorized({
         code: 'INVALID-TOKEN',
         message: error.message,
-        details: {}
       });
     }
   }

@@ -22,10 +22,13 @@ export class IFTMController {
   public create = async (req: Request, res: Response) => {
     try{
       this.getAuthorization(req);
-      const data = req.body.data;
-      const response = await this.iftmService.create(data)
+      const data = req.body;
+      console.log(data);
+      const dataReceived = JSON.stringify(data);
+      const response = await this.iftmService.create(dataReceived);
       res.status(201).set(defaultHttpHeaders()).send(response);
     }catch(error: any){
+      console.log(req);
       res.status(error.statusCode || 500).set(defaultHttpHeaders()).send(error.params);
     }
   }

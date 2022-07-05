@@ -13,10 +13,11 @@ export class IFTMPostgresRepository {
 
   public create = async (input: string) => {
     try{
+      const filterData = input.replace(/[\\]/g, ''); //para remover a (")
       const newData = await IFTM.create({
-        data: input
+        data: filterData
       });
-
+      console.log(newData);
       return newData;
     }
     catch(error: any) {
